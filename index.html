@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MathGPT - Math Symbol Toolbox for ChatGPT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: "#09090b",
+              foreground: "#fafafa",
+              card: "#171717",
+              "card-foreground": "#fafafa",
+              primary: "#10a37f",
+              "primary-foreground": "#ffffff",
+              muted: "#262626",
+              "muted-foreground": "#a3a3a3",
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+            },
+            fontFamily: {
+              sans: ["Manrope", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at center,
+          rgba(16, 163, 127, 0.3) 0%,
+          rgba(16, 163, 127, 0) 70%
+        );
+        mix-blend-mode: screen;
+      }
+
+      .blob-1 {
+        width: 800px;
+        height: 800px;
+        top: -200px;
+        left: -200px;
+      }
+
+      .blob-2 {
+        width: 600px;
+        height: 600px;
+        bottom: -100px;
+        right: -100px;
+      }
+
+      .blob-3 {
+        width: 500px;
+        height: 500px;
+        top: 20%;
+        right: -100px;
+      }
+
+      .blob-4 {
+        width: 700px;
+        height: 700px;
+        bottom: -400px;
+        left: 40%;
+        transform: translateX(-50%);
+        background: radial-gradient(
+          circle at center,
+          rgba(16, 163, 127, 0.25) 0%,
+          rgba(16, 163, 127, 0) 70%
+        );
+      }
+
+      .side-image {
+        position: absolute;
+        z-index: 5;
+        max-width: 300px;
+        filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+      }
+
+      .left-image {
+        left: 0;
+        bottom: 10px;
+        transform: perspective(800px) rotateY(10deg) rotateX(5deg);
+      }
+
+      .right-image {
+        right: 0;
+        bottom: 10px;
+        transform: perspective(800px) rotateY(-10deg) rotateX(5deg);
+      }
+
+      @media (max-width: 1200px) {
+        .side-image {
+          max-width: 200px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .side-image {
+          display: none;
+        }
+      }
+
+      .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 60vh;
+      }
+
+      .cta-container {
+        margin-top: auto;
+        padding-bottom: 120px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-foreground min-h-screen font-sans overflow-x-hidden"
+  >
+    <!-- Gradient blobs background -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+
+    <!-- Side images -->
+    <img src="images/pannel.png" alt="" class="side-image left-image" />
+    <img src="images/settings.png" alt="" class="side-image right-image" />
+
+    <div class="relative min-h-screen z-10">
+      <header class="container mx-auto px-4 py-6">
+        <nav class="flex justify-center items-center">
+          <span class="text-4xl text-primary">∬</span>
+        </nav>
+      </header>
+
+      <main
+        class="container mx-auto px-4 flex flex-col items-center justify-center text-center"
+      >
+        <div class="content-wrapper max-w-3xl mx-auto">
+          <div class="mt-16">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+              Ready to solve math with
+              <span class="text-primary">ChatGPT?</span>
+            </h1>
+
+            <p class="text-xl mb-10 text-muted-foreground max-w-2xl mx-auto">
+              Enhance your ChatGPT experience with MathGPT, a powerful math
+              symbol toolbox. Write complex equations and formulas with ease.
+            </p>
+          </div>
+
+          <div class="cta-container">
+            <a
+              href="#download"
+              class="bg-primary text-primary-foreground px-8 py-3 rounded-full text-base font-medium hover:bg-opacity-90 transition-colors inline-flex items-center"
+            >
+              Get Started
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4 ml-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            if (targetId === "#download") {
+              // Redirect to download page
+              window.location.href = "download.html";
+              return;
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

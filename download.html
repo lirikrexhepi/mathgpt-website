@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download MathGPT - Math Symbol Toolbox for ChatGPT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: "#09090b",
+              foreground: "#fafafa",
+              card: "#171717",
+              "card-foreground": "#fafafa",
+              primary: "#10a37f",
+              "primary-foreground": "#ffffff",
+              muted: "#262626",
+              "muted-foreground": "#a3a3a3",
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+            },
+            fontFamily: {
+              sans: ["Manrope", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at center,
+          rgba(16, 163, 127, 0.3) 0%,
+          rgba(16, 163, 127, 0) 70%
+        );
+        mix-blend-mode: screen;
+      }
+
+      .blob-1 {
+        width: 800px;
+        height: 800px;
+        top: -200px;
+        left: -200px;
+      }
+
+      .blob-2 {
+        width: 600px;
+        height: 600px;
+        bottom: -100px;
+        right: -100px;
+      }
+
+      .blob-3 {
+        width: 500px;
+        height: 500px;
+        top: 30%;
+        right: -100px;
+      }
+
+      .blob-4 {
+        width: 700px;
+        height: 700px;
+        bottom: -350px;
+        left: 25%;
+        transform: translateX(-50%);
+        background: radial-gradient(
+          circle at center,
+          rgba(16, 163, 127, 0.25) 0%,
+          rgba(16, 163, 127, 0) 70%
+        );
+      }
+
+      .side-image {
+        position: absolute;
+        z-index: 5;
+        max-width: 300px;
+        filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+      }
+
+      .left-image {
+        left: 0;
+        bottom: 10px;
+        transform: perspective(800px) rotateY(10deg) rotateX(5deg);
+      }
+
+      .right-image {
+        right: 0;
+        bottom: 10px;
+        transform: perspective(800px) rotateY(-10deg) rotateX(5deg);
+      }
+
+      @media (max-width: 1200px) {
+        .side-image {
+          max-width: 200px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .side-image {
+          display: none;
+        }
+      }
+
+      .step-image {
+        border-radius: 0.5rem;
+        border: 1px solid #262626;
+        max-width: 100%;
+        height: auto;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .step-container {
+        border: 1px solid rgba(38, 38, 38, 0.5);
+        border-radius: 0.5rem;
+        padding: 2rem;
+        background-color: rgba(9, 9, 11, 0.6);
+        backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
+      }
+
+      .step-container:hover {
+        border-color: rgba(16, 163, 127, 0.3);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background-color: var(--primary);
+        color: var(--primary-foreground);
+        border-radius: 50%;
+        margin-right: 12px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-foreground min-h-screen font-sans overflow-x-hidden"
+  >
+    <!-- Gradient blobs background -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+
+    <!-- Side images -->
+    <img src="images/pannel.png" alt="" class="side-image left-image" />
+    <img src="images/settings.png" alt="" class="side-image right-image" />
+
+    <div class="relative min-h-screen z-10">
+      <header class="container mx-auto px-4 py-6">
+        <nav class="flex justify-center items-center">
+          <a href="index.html">
+            <span class="text-4xl text-primary">∬</span>
+          </a>
+        </nav>
+      </header>
+
+      <main
+        class="container mx-auto px-4 flex flex-col items-center justify-center text-center py-20"
+      >
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+          <span class="text-primary">Install</span> MathGPT
+        </h1>
+
+        <p class="text-xl mb-12 text-muted-foreground max-w-2xl">
+          Follow these simple steps to install MathGPT from GitHub
+        </p>
+
+        <div class="max-w-3xl w-full space-y-12">
+          <!-- Step 1 -->
+          <div class="step-container">
+            <h2 class="text-2xl font-semibold mb-4 flex items-center">
+              <span class="step-number">1</span>
+              <span class="text-primary">Download from GitHub</span>
+            </h2>
+            <p class="text-muted-foreground mb-8 text-left">
+              Visit the
+              <a
+                href="https://github.com/lirikrexhepi/mathGPT"
+                class="text-primary hover:underline"
+                >MathGPT GitHub repository</a
+              >, click on the "Code" button and download the extension as a ZIP
+              file. Or click on the Download Zip button to download directly
+            </p>
+            <a
+              href="https://github.com/lirikrexhepi/mathGPT/archive/refs/heads/main.zip"
+              target="_blank"
+              class="bg-primary text-primary-foreground px-8 py-3 rounded-full text-base font-medium hover:bg-opacity-90 transition-colors inline-flex items-center mb-8"
+            >
+              Download ZIP
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4 ml-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+            </a>
+            <img
+              src="images/dwnldgithub.png"
+              alt="Download from GitHub"
+              class="step-image mx-auto"
+            />
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-container">
+            <h2 class="text-2xl font-semibold mb-4 flex items-center">
+              <span class="step-number">2</span>
+              <span class="text-primary">Enable Developer Mode</span>
+            </h2>
+            <p class="text-muted-foreground mb-8 text-left">
+              Open Chrome and navigate to
+              <code class="bg-muted px-2 py-1 rounded">chrome://extensions</code
+              >. Toggle the "Developer mode" on, in the top-right corner.
+            </p>
+            <img
+              src="images/devMode.png"
+              alt="Enable Developer Mode"
+              class="step-image mx-auto"
+            />
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-container">
+            <h2 class="text-2xl font-semibold mb-4 flex items-center">
+              <span class="step-number">3</span>
+              <span class="text-primary">Extract the ZIP File</span>
+            </h2>
+            <p class="text-muted-foreground mb-8 text-left">
+              Extract the downloaded ZIP file to a location on your computer
+              where you want to keep the extension files.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-container">
+            <h2 class="text-2xl font-semibold mb-4 flex items-center">
+              <span class="step-number">4</span>
+              <span class="text-primary">Load Unpacked Extension</span>
+            </h2>
+            <p class="text-muted-foreground mb-8 text-left">
+              Go back on
+              <code class="bg-muted px-2 py-1 rounded">chrome://extensions</code
+              >. Click "Load unpacked" and select the folder we just extracted.
+              Make sure to select the main extracted folder.
+            </p>
+            <img
+              src="images/loadUnpacked.png"
+              alt="Load Unpacked Extension"
+              class="step-image mx-auto"
+            />
+          </div>
+
+          <!-- Step 5 -->
+          <div class="step-container">
+            <h2 class="text-2xl font-semibold mb-4 flex items-center">
+              <span class="step-number">5</span>
+              <span class="text-primary">Start Using MathGPT</span>
+            </h2>
+            <p class="text-muted-foreground mb-8 text-left">
+              Navigate to
+              <a
+                href="https://chat.openai.com"
+                class="text-primary hover:underline"
+                >ChatGPT</a
+              >
+              and start using mathematical symbols! The MathGPT panel will
+              appear on the right side of your screen.
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
